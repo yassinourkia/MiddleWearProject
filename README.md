@@ -1,2 +1,2 @@
 # MiddleWearProject
-E-commerce using different middle wear (SOAP - JMS - Tuple Space - RMI)
+E-commerce using different middleware (SOAP - JMS - Tuple Space - RMI)
