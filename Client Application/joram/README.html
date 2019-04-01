@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <style>
+       body { color: #000; background-color: #ffffff;
+       font-family: Verdana,sans-serif; font-size: 9pt }
+       h1 { color: #084B8A; text-align: center }
+       h2, h3, h4, h5, h6 { color: #084B8A; }
+       code { padding:1px 5px; background-color: #fff8ff;
+       color: #7a4881; font-weight: 500; font-size:97%;
+       font-family : 'Roboto Mono', monospace; }
+       pre code { display:block; overflow-x: auto;
+       border-left-style:  solid; border-color: #7a4881;
+       border-width: 0px 0px 0px 6px; padding:10px;
+       color: #2f2f2f; background-color: #f2f2f2; }
+       th,td { padding: 0px 5px 0px 5px; }
+       li { margin-top:7px; margin-bottom:10px; }
+    </style>
+    <title>README</title>
+  </head>
+  <body>
+    <form>
+<h1>JORAM: custom distribution</h1>
+
+<hr />
+
+<h2>JORAM server</h2>
+
+<p>The custom JORAM server provides a way to start/stop a JORAM
+server. It can be used as a standalone application or by creating an
+instance and invoking its start or run method to start the server
+asynchronousely or synchronousely</p>
+
+<h3>build</h3>
+
+<pre><code>mvn build
+</code></pre>
+
+<h3>run as a standalone application</h3>
+
+<pre><code>java -jar target/joram-server-1.0.jar &lt;port&gt;
+</code></pre>
+
+<p>Hit CTRL-C to stop the server.</p>
+
+<h3>run from a program</h3>
+
+<p>Add in your <code>pom.xml</code> file:</p>
+
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;fr.ensibs&lt;/groupId&gt;
+    &lt;artifactId&gt;joram-server&lt;/artifactId&gt;
+    &lt;version&gt;1.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>In your program, use the class <code>fr.ensibs.joram.Joram</code>:</p>
+
+<ul>
+<li>constructor args: server port number</li>
+<li><code>run()</code>: start the server synchronously</li>
+<li><code>start()</code>: start the server asynchronously (thread)</li>
+<li><code>close()</code>: stop the server</li>
+</ul>
+
+<hr />
+
+<h2>JORAM administration tool</h2>
+
+<p>The custom JORAM administration tool allows to create, list and delete
+queues and topics</p>
+
+<h3>build</h3>
+
+<pre><code>mvn build
+</code></pre>
+
+<h3>run as a standalone application</h3>
+
+<pre><code>java -jar target/joram-admin-1.0.jar &lt;port&gt;
+</code></pre>
+
+<p>and type commands </p>
+
+<h3>run from a program</h3>
+
+<p>Add in your <code>pom.xml</code> file:</p>
+
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;fr.ensibs&lt;/groupId&gt;
+    &lt;artifactId&gt;joram-admin&lt;/artifactId&gt;
+    &lt;version&gt;1.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>In your program, use the class <code>fr.ensibs.joram.JoramAdmin</code>:</p>
+
+<ul>
+<li>constructor args: server host name and port number</li>
+<li><code>createQueue(String)</code>: create a queue</li>
+<li><code>createTopic(String)</code>: create a topic</li>
+<li><code>deleteDestination(String)</code>: delete a queue or topic</li>
+<li><code>getQueues()</code>: give the queues names</li>
+<li><code>getTopics()</code>: give the topics names</li>
+<li><code>close()</code>: stop the administration tool</li>
+</ul>
+
+<hr />
+
+<h2>JORAM client</h2>
+
+<p>Add in your <code>pom.xml</code> file:</p>
+
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.ow2.joram&lt;/groupId&gt;
+    &lt;artifactId&gt;joram-client-jms&lt;/artifactId&gt;
+    &lt;version&gt;5.16.0&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.ow2.joram&lt;/groupId&gt;
+    &lt;artifactId&gt;jndi-client&lt;/artifactId&gt;
+    &lt;version&gt;5.16.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>To write a JMS client using JORAM, you need first to obtain a
+reference to the JNDI context (with <code>host</code> and <code>port</code> the JORAM server
+host name and port number):</p>
+
+<pre><code>System.setProperty("java.naming.factory.initial", "fr.dyade.aaa.jndi2.client.NamingContextFactory");
+System.setProperty("java.naming.factory.host", host);
+System.setProperty("java.naming.factory.port", port);
+Context context = new InitialContext();
+</code></pre>
+
+<p>... and then obtain administered objects: <code>Destination</code> and
+<code>ConnectionFactory</code> instances (with <code>destName</code> the name of the
+destination):</p>
+
+<pre><code>ConnectionFactory factory = (ConnectionFactory) context.lookup("ConnectionFactory"_NAME);
+Destination destination = (Destination) context.lookup(destName);
+</code></pre>
+    </form>
+  </body>
+</html>
