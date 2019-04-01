@@ -1,0 +1,45 @@
+main WARNING 2019-02-20 14:26:39,977,  -> Could not connect to JMS server org.objectweb.joram.shared.security.SimpleIdentity@41cf53f9(user=root),-1
+javax.jms.IllegalStateException: Could not connect to JMS server with [(hostName=localhost,port=8081)] after 1 attempts during 1 secs.
+Server is not listening or server protocol version is not compatible with client.
+	at org.objectweb.joram.client.jms.tcp.ReliableTcpClient.connect(ReliableTcpClient.java:232)
+	at org.objectweb.joram.client.jms.tcp.ReliableTcpClient.connect(ReliableTcpClient.java:140)
+	at org.objectweb.joram.client.jms.tcp.TcpRequestChannel.connect(TcpRequestChannel.java:116)
+	at org.objectweb.joram.client.jms.connection.RequestMultiplexer.<init>(RequestMultiplexer.java:183)
+	at org.objectweb.joram.client.jms.Connection.open(Connection.java:233)
+	at org.objectweb.joram.client.jms.admin.AbstractConnectionFactory.createConnection(AbstractConnectionFactory.java:308)
+	at org.objectweb.joram.client.jms.admin.AdminModule.doConnect(AdminModule.java:552)
+	at org.objectweb.joram.client.jms.admin.AdminModule.doConnect(AdminModule.java:458)
+	at org.objectweb.joram.client.jms.admin.AdminModule.connect(AdminModule.java:302)
+	at fr.ensibs.joram.JoramAdmin.<init>(JoramAdmin.java:76)
+	at fr.ensibs.joram.JoramAdmin.processCommands(JoramAdmin.java:158)
+	at fr.ensibs.joram.JoramAdmin.main(JoramAdmin.java:58)
+main WARNING 2019-02-20 14:26:56,777,  -> Could not connect to JMS server org.objectweb.joram.shared.security.SimpleIdentity@41cf53f9(user=root),-1
+javax.jms.IllegalStateException: Could not connect to JMS server with [(hostName=localhost,port=8081)] after 1 attempts during 1 secs.
+Server is not listening or server protocol version is not compatible with client.
+	at org.objectweb.joram.client.jms.tcp.ReliableTcpClient.connect(ReliableTcpClient.java:232)
+	at org.objectweb.joram.client.jms.tcp.ReliableTcpClient.connect(ReliableTcpClient.java:140)
+	at org.objectweb.joram.client.jms.tcp.TcpRequestChannel.connect(TcpRequestChannel.java:116)
+	at org.objectweb.joram.client.jms.connection.RequestMultiplexer.<init>(RequestMultiplexer.java:183)
+	at org.objectweb.joram.client.jms.Connection.open(Connection.java:233)
+	at org.objectweb.joram.client.jms.admin.AbstractConnectionFactory.createConnection(AbstractConnectionFactory.java:308)
+	at org.objectweb.joram.client.jms.admin.AdminModule.doConnect(AdminModule.java:552)
+	at org.objectweb.joram.client.jms.admin.AdminModule.doConnect(AdminModule.java:458)
+	at org.objectweb.joram.client.jms.admin.AdminModule.connect(AdminModule.java:302)
+	at fr.ensibs.joram.JoramAdmin.<init>(JoramAdmin.java:76)
+	at fr.ensibs.joram.JoramAdmin.processCommands(JoramAdmin.java:158)
+	at fr.ensibs.joram.JoramAdmin.main(JoramAdmin.java:58)
+main WARNING 2019-02-21 00:42:58,976,  -> Could not connect to JMS server org.objectweb.joram.shared.security.SimpleIdentity@41cf53f9(user=root),-1
+javax.jms.IllegalStateException: Could not connect to JMS server with [(hostName=localhost,port=8889)] after 1 attempts during 1 secs.
+Server is not listening or server protocol version is not compatible with client.
+	at org.objectweb.joram.client.jms.tcp.ReliableTcpClient.connect(ReliableTcpClient.java:232)
+	at org.objectweb.joram.client.jms.tcp.ReliableTcpClient.connect(ReliableTcpClient.java:140)
+	at org.objectweb.joram.client.jms.tcp.TcpRequestChannel.connect(TcpRequestChannel.java:116)
+	at org.objectweb.joram.client.jms.connection.RequestMultiplexer.<init>(RequestMultiplexer.java:183)
+	at org.objectweb.joram.client.jms.Connection.open(Connection.java:233)
+	at org.objectweb.joram.client.jms.admin.AbstractConnectionFactory.createConnection(AbstractConnectionFactory.java:308)
+	at org.objectweb.joram.client.jms.admin.AdminModule.doConnect(AdminModule.java:552)
+	at org.objectweb.joram.client.jms.admin.AdminModule.doConnect(AdminModule.java:458)
+	at org.objectweb.joram.client.jms.admin.AdminModule.connect(AdminModule.java:302)
+	at fr.ensibs.joram.JoramAdmin.<init>(JoramAdmin.java:76)
+	at fr.ensibs.joram.JoramAdmin.processCommands(JoramAdmin.java:158)
+	at fr.ensibs.joram.JoramAdmin.main(JoramAdmin.java:58)
