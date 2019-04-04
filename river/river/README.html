@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <style>
+       body { color: #000; background-color: #ffffff;
+       font-family: Verdana,sans-serif; font-size: 9pt }
+       h1 { color: #084B8A; text-align: center }
+       h2, h3, h4, h5, h6 { color: #084B8A; }
+       code { padding:1px 5px; background-color: #fff8ff;
+       color: #7a4881; font-weight: 500; font-size:97%;
+       font-family : 'Roboto Mono', monospace; }
+       pre code { display:block; overflow-x: auto;
+       border-left-style:  solid; border-color: #7a4881;
+       border-width: 0px 0px 0px 6px; padding:10px;
+       color: #2f2f2f; background-color: #f2f2f2; }
+       th,td { padding: 0px 5px 0px 5px; }
+       li { margin-top:7px; margin-bottom:10px; }
+    </style>
+    <title>README</title>
+  </head>
+  <body>
+    <form>
+<h1>River Javaspaces custom distribution for the ENSIBS course</h1>
+
+<h1>Middleware for Distributed Computing</h1>
+
+<ul>
+<li>author: Pascale Launay</li>
+</ul>
+
+<hr />
+
+<h2>Server project</h2>
+
+<p>The server project <code>river/</code> allows to start/stop the shared JavaSpace and TransactionManager services</p>
+
+<h3>Build this project</h3>
+
+<pre><code>mvn install
+</code></pre>
+
+<h3>Start the River Javaspaces server</h3>
+
+<h4>from the console (standalone)</h4>
+
+<pre><code>java -jar target/river-1.0.jar -h &lt;host&gt; -p &lt;port&gt;
+</code></pre>
+
+<h4>from a program</h4>
+
+<p>Add in the pom.xml:</p>
+
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;fr.ensibs&lt;/groupId&gt;
+    &lt;artifactId&gt;river&lt;/artifactId&gt;
+    &lt;version&gt;1.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>Use the <code>fr.ensibs.river.River</code> class:</p>
+
+<ul>
+<li>constructor: host, port</li>
+<li><code>run</code>: start the server synchronously</li>
+<li><code>start</code>: start the server asynchronously (thread)</li>
+</ul>
+
+<h3>Stop the River Javaspaces server</h3>
+
+<p>kill the process that started the server</p>
+
+<hr />
+
+<h2>Lookup project</h2>
+
+<p>The lookup project <code>river-lookup/</code> allows to obtain references the shared JavaSpace and TransactionManager services</p>
+
+<h3>Build this project</h3>
+
+<pre><code>mvn install
+</code></pre>
+
+<h3>Get a reference to a JavaSpace or TransactionManager instance in a client program</h3>
+
+<p>Add in the pom.xml:</p>
+
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;fr.ensibs&lt;/groupId&gt;
+    &lt;artifactId&gt;river-lookup&lt;/artifactId&gt;
+    &lt;version&gt;1.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>Use the <code>fr.ensibs.river.RiverLookup</code> class:</p>
+
+<ul>
+<li><code>lookup</code> method:
+<ul>
+<li>host, port: server location</li>
+<li>serviceClass: the required service class (JavaSpace.class or TransactionManager.class)</li>
+<li>timeout (in ms)
+<ul>
+<li>timeout >= 0 -> return null after timeout if no service found</li>
+<li>timeout &lt; 0  -> no timeout (blocking)</li>
+<li>no timeout   -> default timeout (3000 ms)</li>
+</ul></li>
+</ul></li>
+</ul>
+    </form>
+  </body>
+</html>
